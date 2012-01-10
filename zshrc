@@ -17,3 +17,6 @@ if [[ -f $HOME/.zshrc.local ]]; then
   . $HOME/.zshrc.local
 fi
 
+# Fix alias 'l' to show file size in human-readable format
+alias l='ls -lha'
+
