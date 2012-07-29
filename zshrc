@@ -20,3 +20,6 @@ fi
 # Fix alias 'l' to show file size in human-readable format
 alias l='ls -lha'
 
+# History command that, if passed an argument, only shows command line history
+# for that specific command. Otherwise it is just shorthand for "history 1"
+h() { if [ -z "$*" ]; then history ; else history | egrep "$@"; fi; }

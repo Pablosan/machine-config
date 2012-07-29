@@ -66,6 +66,11 @@ set history=1000               " keep 50 lines of command line history
 set incsearch                  " do incremental searching
 set scrolloff=8                " start scrolling when cursor is 8 lines from bottom
 
+" Paste Toggle (stops <Command>-V paste from having indentation added)
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k

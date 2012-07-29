@@ -2,3 +2,5 @@
 	name = Paul Nelson
 	email = Pablosan@SalientBlue.com
 
+[push]
+	default = upstream
