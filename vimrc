@@ -1,6 +1,9 @@
 " Define buildfile as a ruby file
 au BufReadPost buildfile set filetype=ruby
 
+" Set clipboard for Mac OS X
+set clipboard=unnamed
+
 " Set NERDTree width
 let g:NERDTreeWinSize = 60
 
