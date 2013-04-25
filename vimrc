@@ -1,3 +1,10 @@
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" Setup vim to allow per-project (local) .vimrc files
+set exrc
+set secure
+
 " Define buildfile as a ruby file
 au BufReadPost buildfile set filetype=ruby
 
@@ -32,12 +39,10 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
 " Indent Stuffs
 set autoindent
 set smartindent
+autocmd FileType python setl nosmartindent
 
 " Tab Stuffs
 set expandtab
@@ -78,8 +83,13 @@ map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
+map <leader>- <C-W>_
+map <leader>= <C-W>=
+map <leader>\ <C-W><Bar>
 nmap <silent> <leader>h :silent :nohlsearch<CR>
 nmap <silent> <leader>f :silent :FufFile<CR>
+nmap <silent> <leader>l :silent :FufLine<CR>
+nmap <silent> <leader>r :silent :FufBuffer<CR>
 nmap <silent> <leader>n :silent :NERDTreeToggle<CR>
 nmap <silent> <leader>bb :silent :bp<CR>
 nmap <silent> <leader>bn :silent :bn<CR>
