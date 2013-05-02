@@ -10,3 +10,6 @@
 	status = auto
 	branch = auto
 
+[hub]
+	host = github.rackspace.com
+	protocol = https
