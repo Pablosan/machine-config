@@ -26,6 +26,19 @@ alias l='ls -lha'
 # Git Aliases
 alias g.lg='git log --oneline --graph --all --decorate'
 
+# For virtualenvwrapper
+export WORKON_HOME=$HOME/.venvs
+source /usr/local/share/python/virtualenvwrapper.sh
+alias v='workon'
+alias v.deactivate='deactivate'
+alias v.mk='mkvirtualenv --no-site-packages'
+alias v.rm='rmvirtualenv'
+alias v.switch='workon'
+alias v.add2virtualenv='add2virtualenv'
+alias v.cdsitepackages='cdsitepackages'
+alias v.cd='cdvirtualenv'
+alias v.lssitepackages='lssitepackages'
+
 # History command that, if passed an argument, only shows command line history
 # for that specific command. Otherwise it is just shorthand for "history 1"
 h() { if [ -z "$*" ]; then history ; else history | egrep "$@"; fi; }
