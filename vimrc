@@ -76,7 +76,7 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 set bsdir=last                 " Last accessed directory is default working directory
 set history=1000               " keep 50 lines of command line history
 set incsearch                  " do incremental searching
-set scrolloff=8                " start scrolling when cursor is 8 lines from bottom
+set scrolloff=0                " start scrolling when cursor is 0 lines from bottom
 
 " Paste Toggle (stops <Command>-V paste from having indentation added)
 nnoremap <F2> :set invpaste paste?<CR>
