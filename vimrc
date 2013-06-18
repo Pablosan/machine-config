@@ -44,10 +44,6 @@ set autoindent
 set smartindent
 autocmd FileType python setl nosmartindent
 
-" Pylint Stuffs
-autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
-
 " Tab Stuffs
 set expandtab
 set shiftwidth=2
