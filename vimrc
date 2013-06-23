@@ -79,6 +79,7 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
+map! jj  <Esc>
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
