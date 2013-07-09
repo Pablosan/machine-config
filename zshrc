@@ -31,7 +31,7 @@ alias invim='env | grep vim'
 
 # For virtualenvwrapper
 export WORKON_HOME=$HOME/.venvs
-source /usr/local/share/python/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 alias v='workon'
 alias v.deactivate='deactivate'
 alias v.mk='mkvirtualenv --distribute --no-site-packages'
@@ -45,3 +45,6 @@ alias v.lssitepackages='lssitepackages'
 # History command that, if passed an argument, only shows command line history
 # for that specific command. Otherwise it is just shorthand for "history 1"
 h() { if [ -z "$*" ]; then history ; else history | egrep "$@"; fi; }
+
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -9,7 +9,9 @@ set secure
 au BufReadPost buildfile set filetype=ruby
 
 " Set clipboard for Mac OS X
-set clipboard=unnamed
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
 
 " Set NERDTree width
 let g:NERDTreeWinSize = 60
@@ -79,7 +81,7 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-map! jj  <Esc>
+map! jk  <Esc>
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
