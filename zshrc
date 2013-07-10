@@ -34,7 +34,7 @@ export WORKON_HOME=$HOME/.venvs
 source /usr/local/bin/virtualenvwrapper.sh
 alias v='workon'
 alias v.deactivate='deactivate'
-alias v.mk='mkvirtualenv --distribute --no-site-packages'
+alias v.mk='mkvirtualenv --no-site-packages'
 alias v.rm='rmvirtualenv'
 alias v.switch='workon'
 alias v.add2virtualenv='add2virtualenv'
