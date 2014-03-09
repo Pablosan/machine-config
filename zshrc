@@ -11,6 +11,9 @@ export ZSH_THEME="wezm"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(git vi-mode)
 
+# The lag when hitting ESC to enter vi mode is abysmal:
+export KEYTIMEOUT=0
+
 # Get rid of auto title so that I can force window names in tmux
 export DISABLE_AUTO_TITLE=true
 
@@ -19,6 +22,9 @@ source $ZSH/oh-my-zsh.sh
 if [[ -f $HOME/.zshrc.local ]]; then
   . $HOME/.zshrc.local
 fi
+
+# Make pip faster via caching
+export PIP_DOWNLOAD_CACHE=~/.pip/cache
 
 # Fix alias 'l' to show file size in human-readable format
 alias l='ls -lha'
@@ -41,6 +47,10 @@ alias v.add2virtualenv='add2virtualenv'
 alias v.cdsitepackages='cdsitepackages'
 alias v.cd='cdvirtualenv'
 alias v.lssitepackages='lssitepackages'
+alias v.3mk='mkvirtualenv --no-site-packages --python=/usr/local/bin/python3'
+
+# For Pylint
+alias pyl='pylint -f colorized'
 
 # History command that, if passed an argument, only shows command line history
 # for that specific command. Otherwise it is just shorthand for "history 1"

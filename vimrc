@@ -8,10 +8,11 @@ set secure
 " Define buildfile as a ruby file
 au BufReadPost buildfile set filetype=ruby
 
-" Set clipboard for Mac OS X
-if $TMUX == ''
-  set clipboard+=unnamed
-endif
+" Define Heat .template files as yaml
+au BufReadPost *.template setlocal ft=yaml
+
+" Define .json files as json
+au BufReadPost *.json set filetype=json
 
 " Set NERDTree width
 let g:NERDTreeWinSize = 60
@@ -35,6 +36,14 @@ set wildmode=list:longest
 
 " It's time to get with the new Millenia: set UTF-8 character encoding
 set encoding=utf-8
+
+" ESC'ing take fo-EVAH!
+set ttimeout
+set timeoutlen=600
+set ttimeoutlen=50
+
+" Switch interactive shell to zsh
+"set shell=zsh\ -i
 
 " Needed for matchit.vim (at least) to work
 filetype on
@@ -96,6 +105,10 @@ nmap <silent> <leader>r :silent :FufBuffer<CR>
 nmap <silent> <leader>n :silent :NERDTreeToggle<CR>
 nmap <silent> <leader>bb :silent :bp<CR>
 nmap <silent> <leader>bn :silent :bn<CR>
+nmap <silent> <leader>jj :%!python -m json.tool<CR>
+cabbrev p !pylint -f colorized %
+cabbrev f !flake8 %
+cabbrev n !nosetests --no-skip %
 
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
