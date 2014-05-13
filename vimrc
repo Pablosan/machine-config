@@ -1,6 +1,11 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Set Encoding
+set encoding=utf-8
+setglobal fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,latin1
+
 " Setup vim to allow per-project (local) .vimrc files
 set exrc
 set secure
@@ -33,9 +38,6 @@ set listchars=tab:·\ ,trail:·
 
 " Get a list of files on Tab instead of autofilling the longest file
 set wildmode=list:longest
-
-" It's time to get with the new Millenia: set UTF-8 character encoding
-set encoding=utf-8
 
 " ESC'ing take fo-EVAH!
 set ttimeout

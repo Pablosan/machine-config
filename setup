@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Install oh-my-zsh
+curl -L http://install.ohmyz.sh | sh
+
+
+# Set zsh as default shell
+chsh -s /bin/zsh
+
+# Get rid of default .zshrc file
+rm $HOME/.zshrc
+
+# Create aliases in home directory
+ln -s $HOME/src/machine-config/gitconfig $HOME/.gitconfig
+ln -s $HOME/src/machine-config/tmux.conf $HOME/.tmux.conf
+ln -s $HOME/src/machine-config/vim $HOME/.vim
+ln -s $HOME/src/machine-config/vimrc $HOME/.vimrc
+ln -s $HOME/src/machine-config/zshrc $HOME/.zshrc
+
