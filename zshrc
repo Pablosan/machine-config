@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
-
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 #export ZSH_THEME="arrow"
@@ -23,38 +22,16 @@ if [[ -f $HOME/.zshrc.local ]]; then
   . $HOME/.zshrc.local
 fi
 
-# Make pip faster via caching
-export PIP_DOWNLOAD_CACHE=~/.pip/cache
+# Command completion
+autoload -U compinit
+compinit
+
+# Fix Ctrl-R (borked by vi-Mode)
+bindkey -M viins '^r' history-beginning-search-backward
+bindkey -M vicmd '^r' history-beginning-search-backward
 
 # Fix alias 'l' to show file size in human-readable format
 alias l='ls -lha'
 
 # Git Aliases
 alias g.lg='git log --oneline --graph --all --decorate'
-
-# Am I in a shell from within vim?
-alias invim='env | grep vim'
-
-# For virtualenvwrapper
-export WORKON_HOME=$HOME/.venvs
-source /usr/local/bin/virtualenvwrapper.sh
-alias v='workon'
-alias v.deactivate='deactivate'
-alias v.mk='mkvirtualenv --no-site-packages'
-alias v.rm='rmvirtualenv'
-alias v.switch='workon'
-alias v.add2virtualenv='add2virtualenv'
-alias v.cdsitepackages='cdsitepackages'
-alias v.cd='cdvirtualenv'
-alias v.lssitepackages='lssitepackages'
-alias v.3mk='mkvirtualenv --no-site-packages --python=/usr/local/bin/python3'
-
-# For Pylint
-alias pyl='pylint -f colorized'
-
-# History command that, if passed an argument, only shows command line history
-# for that specific command. Otherwise it is just shorthand for "history 1"
-h() { if [ -z "$*" ]; then history ; else history | egrep "$@"; fi; }
-
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
