@@ -7,6 +7,12 @@ export ZSH=$HOME/.oh-my-zsh
 #export ZSH_THEME="kennethreitz"
 export ZSH_THEME="wezm"
 
+
+# Re-route help to online help
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(git vi-mode)
 
