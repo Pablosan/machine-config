@@ -41,3 +41,6 @@ alias l='ls -lha'
 
 # Git Aliases
 alias g.lg='git log --oneline --graph --all --decorate'
+
+# Golang package path
+export GOPATH=~/.go

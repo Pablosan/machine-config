@@ -119,4 +119,3 @@ let g:miniBufExplModSelTarget = 1
 
 syntax enable
 colorscheme sand
-
