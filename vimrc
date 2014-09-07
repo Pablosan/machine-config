@@ -6,6 +6,9 @@ set encoding=utf-8
 setglobal fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,latin1
 
+" Setup pathogen
+execute pathogen#infect()
+
 " Setup vim to allow per-project (local) .vimrc files
 set exrc
 set secure
