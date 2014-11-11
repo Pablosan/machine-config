@@ -22,8 +22,11 @@ au BufReadPost *.template setlocal ft=yaml
 " Define .json files as json
 au BufReadPost *.json set filetype=json
 
+" Define .rs files as rust
+au BufReadPost *.rs set filetype=rust
+
 " Set NERDTree width
-let g:NERDTreeWinSize = 60
+let g:NERDTreeWinSize = 45
 
 " Switch between buffers without saving and while retaining mark and undo history
 set hidden
@@ -82,6 +85,7 @@ set showcmd                    " display incomplete commands
 set laststatus=2
 set title
 set visualbell
+set colorcolumn=80
 
 " Nav Stuffs
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -122,3 +126,4 @@ let g:miniBufExplModSelTarget = 1
 
 syntax enable
 colorscheme sand
+highlight ColorColumn ctermbg=darkgrey guibg=darkgrey

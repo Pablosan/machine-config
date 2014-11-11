@@ -39,8 +39,8 @@ bindkey -M vicmd '^r' history-beginning-search-backward
 # Fix alias 'l' to show file size in human-readable format
 alias l='ls -lha'
 
-# Git Aliases
-alias g.lg='git log --oneline --graph --all --decorate'
+# Atom alias
+alias a='open -a Atom.app'
 
 # Golang package path
 export GOPATH=~/
