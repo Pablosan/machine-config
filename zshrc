@@ -2,11 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-#export ZSH_THEME="arrow"
-#export ZSH_THEME="clean"
-#export ZSH_THEME="kennethreitz"
 export ZSH_THEME="wezm"
-
 
 # Re-route help to online help
 unalias run-help
@@ -39,8 +35,27 @@ bindkey -M vicmd '^r' history-beginning-search-backward
 # Fix alias 'l' to show file size in human-readable format
 alias l='ls -lha'
 
-# Atom alias
-alias a='open -a Atom.app'
-
 # Golang package path
 export GOPATH=~/
+
+# Count lines of code (excluding blanks)
+alias ctlns="cat ./**/* | sed '/^\s*$/d' | wc -l"
+alias ctlnspy="cat ./**/*.py | sed '/^\s*$/d' | wc -l"
+
+# For virtualenvwrapper
+export WORKON_HOME=$HOME/.venvs
+source /usr/local/bin/virtualenvwrapper.sh
+alias v='hash -r && workon'
+alias v.deactivate='deactivate'
+alias v.mk='mkvirtualenv --no-site-packages'
+alias v.rm='rmvirtualenv'
+alias v.switch='workon'
+alias v.add2virtualenv='add2virtualenv'
+alias v.cdsitepackages='cdsitepackages'
+alias v.cd='cdvirtualenv'
+alias v.lssitepackages='lssitepackages'
+alias v.3mk='mkvirtualenv --no-site-packages --python=/usr/local/bin/python3'
+
+# For Python
+alias pyl='pylint -f colorized'
+alias nt='nosetests --nologcapture'

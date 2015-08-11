@@ -25,8 +25,9 @@ au BufReadPost *.json set filetype=json
 " Define .rs files as rust
 au BufReadPost *.rs set filetype=rust
 
-" Set NERDTree width
+" Set NERDTree stuffs
 let g:NERDTreeWinSize = 45
+let g:NERDTreeQuitOnOpen = 1
 
 " Switch between buffers without saving and while retaining mark and undo history
 set hidden
@@ -79,7 +80,7 @@ set nowb
 " Display Stuffs
 set hlsearch
 set showmatch
-set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+set fillchars=vert:\ ,stl:\ ,stlnc:\
 set ruler                      " show the cursor position all the time
 set showcmd                    " display incomplete commands
 set laststatus=2
@@ -117,7 +118,7 @@ nmap <silent> <leader>bn :silent :bn<CR>
 nmap <silent> <leader>jj :%!python -m json.tool<CR>
 cabbrev p !pylint -f colorized %
 cabbrev f !flake8 %
-cabbrev n !nosetests --no-skip %
+cabbrev n !nosetests --nologcapture --no-skip %
 
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
@@ -125,5 +126,6 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 syntax enable
-colorscheme sand
-highlight ColorColumn ctermbg=darkgrey guibg=darkgrey
+set background=dark
+colorscheme kalisi
+highlight ColorColumn ctermbg=darkgray guibg=darkgray
