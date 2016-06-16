@@ -2,9 +2,6 @@
 	name = Paul Nelson
 	email = Pablosan@SalientBlue.com
 
-[push]
-	default = upstream
-
 [color]
 	diff = auto
 	status = auto
@@ -15,10 +12,3 @@
 
 [core]
 	editor = /usr/bin/vi
-
-[hub]
-	host = github.rackspace.com
-	protocol = https
-
-[url "https://"]
-	insteadOf = git://
