@@ -4,11 +4,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="wezm"
 
-# Re-route help to online help
-unalias run-help
-autoload run-help
-HELPDIR=/usr/local/share/zsh/helpfiles
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(git vi-mode)
 
@@ -43,18 +38,18 @@ alias ctlns="cat ./**/* | sed '/^\s*$/d' | wc -l"
 alias ctlnspy="cat ./**/*.py | sed '/^\s*$/d' | wc -l"
 
 # For virtualenvwrapper
-export WORKON_HOME=$HOME/.venvs
-source /usr/local/bin/virtualenvwrapper.sh
-alias v='hash -r && workon'
-alias v.deactivate='deactivate'
-alias v.mk='mkvirtualenv --no-site-packages'
-alias v.rm='rmvirtualenv'
-alias v.switch='workon'
-alias v.add2virtualenv='add2virtualenv'
+alias v.27mk='pyenv virtualenv 2.7.11'
+alias v.34mk='pyenv virtualenv 3.4.4'
+alias v.35mk='pyenv virtualenv 3.5.1'
+alias v.deactivate='pyenv deactivate'
+alias v.rm='pyenv uninstall'
+alias v='pyenv activate'
 alias v.cdsitepackages='cdsitepackages'
 alias v.cd='cdvirtualenv'
 alias v.lssitepackages='lssitepackages'
-alias v.3mk='mkvirtualenv --no-site-packages --python=/usr/local/bin/python3'
+
+# For git
+alias gdc='git diff --cached'
 
 # For Python
 alias pyl='pylint -f colorized'
