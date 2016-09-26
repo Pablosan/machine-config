@@ -11,9 +11,13 @@ chsh -s /bin/zsh
 rm $HOME/.zshrc
 
 # Create aliases in home directory
-ln -s $HOME/src/machine-config/gitconfig $HOME/.gitconfig
-ln -s $HOME/src/machine-config/tmux.conf $HOME/.tmux.conf
-ln -s $HOME/src/machine-config/vim $HOME/.vim
-ln -s $HOME/src/machine-config/vimrc $HOME/.vimrc
-ln -s $HOME/src/machine-config/zshrc $HOME/.zshrc
+ln -sf $HOME/src/machine-config/gitconfig $HOME/.gitconfig
+ln -sf $HOME/src/machine-config/tmux.conf $HOME/.tmux.conf
+ln -sf $HOME/src/machine-config/vim $HOME/.vim
+ln -sf $HOME/src/machine-config/vimrc $HOME/.vimrc
+ln -sf $HOME/src/machine-config/zshrc $HOME/.zshrc
+
+# Install and setup vundle for vim Plugins
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 

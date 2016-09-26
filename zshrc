@@ -31,7 +31,10 @@ bindkey -M vicmd '^r' history-beginning-search-backward
 alias l='ls -lha'
 
 # Golang package path
-export GOPATH=~/
+export GOPATH=~/src/gopath
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:~/go-appengine
+export PATH=$PATH:~/google-appengine
 
 # Count lines of code (excluding blanks)
 alias ctlns="cat ./**/* | sed '/^\s*$/d' | wc -l"
