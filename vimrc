@@ -10,38 +10,34 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'L9'
 
 " Keep Plugin commands between vundle#begin/end.
-Plugin 'indentpython.vim'
-Plugin 'L9'
-Plugin 'scratch'
-Plugin 'SearchComplete'
-
-Plugin 'fholgado/minibufexpl.vim'
 Plugin 'freeo/vim-kalisi'
-
-Plugin 'godlygeek/tabular' "must come before vim-markdown
-Plugin 'plasticboy/vim-markdown'
-
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'nvie/vim-flake8'
 Plugin 'govim/govim'
+Plugin 'indentpython.vim'
+Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'tmhedberg/matchit'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'tmhedberg/matchit'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/FuzzyFinder'
 Plugin 'vim-scripts/taglist.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on           " required
+filetype indent on           " required
+
+" Mouse settings, etc. for govim
+set mouse=a                  " required
+set ttymouse=xterm           " required
+set updatetime=500           " required
+set balloondelay=250         " required
+set signcolumn=yes
+
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -105,6 +101,12 @@ set smarttab
 set softtabstop=2
 set tabstop=2
 
+" Show info for completion candidates in a popup menu
+if has("patch-8.1.1904")
+  set completeopt+=popup
+  set completepopup=align:menu,border:off,highlight:Pmenu
+endif
+
 " Tab Stuffs for Python
 au BufNewFile,BufRead *.py
     \ set tabstop=4
@@ -128,6 +130,8 @@ au BufNewFile,BufRead *.js, *.html, *.css
 set autoread
 set autowrite
 set nobackup
+set nowritebackup
+set noswapfile
 set nowb
 
 " Display Stuffs
@@ -179,7 +183,7 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 let python_highlight_all=1
-syntax enable
+syntax on
 set background=dark
 colorscheme kalisi
 highlight ColorColumn ctermbg=darkgray guibg=darkgray
