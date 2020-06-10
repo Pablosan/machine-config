@@ -24,8 +24,8 @@ Plugin 'godlygeek/tabular' "must come before vim-markdown
 Plugin 'plasticboy/vim-markdown'
 
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'lambdalisue/vim-pyenv'
 Plugin 'nvie/vim-flake8'
+Plugin 'govim/govim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tmhedberg/matchit'
