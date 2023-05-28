@@ -1,68 +1,7 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" To install Vundle:
-"   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"   vim +PluginInstall +qall
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'L9'
-
-" Keep Plugin commands between vundle#begin/end.
-Plugin 'freeo/vim-kalisi'
-Plugin 'govim/govim'
-Plugin 'indentpython.vim'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'tmhedberg/matchit'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/FuzzyFinder'
-Plugin 'vim-scripts/taglist.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-filetype plugin on           " required
-filetype indent on           " required
-
-" Mouse settings, etc. for govim
-set mouse=a                  " required
-set ttymouse=xterm           " required
-set updatetime=500           " required
-set balloondelay=250         " required
-set signcolumn=yes
-
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
 " Set Encoding
 set encoding=utf-8
 setglobal fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,latin1
-
-" Setup vim to allow per-project (local) .vimrc files
-set exrc
-set secure
-
-" Define .json files as json
-au BufReadPost *.json set filetype=json
-
-" Set NERDTree stuffs
-let g:NERDTreeWinSize = 45
-let g:NERDTreeQuitOnOpen = 1
 
 " Switch between buffers without saving and while retaining mark and undo history
 set hidden
@@ -86,9 +25,6 @@ set ttimeout
 set timeoutlen=600
 set ttimeoutlen=50
 
-" Switch interactive shell to zsh
-"set shell=zsh\ -i
-
 " Indent Stuffs
 set autoindent
 set smartindent
@@ -107,24 +43,25 @@ if has("patch-8.1.1904")
   set completepopup=align:menu,border:off,highlight:Pmenu
 endif
 
+" Flag trailing whitespace for Python/C files
+"highlight BadWhitespace ctermbg=darkgreen guibg=darkgreen
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 " Tab Stuffs for Python
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
     \ set fileformat=unix
-
-" Flag trailing whitespace for Python/C files
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Tab Stuffs for web dev
 au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
 
 " File Stuffs
 set autoread
@@ -166,16 +103,9 @@ map <leader>- <C-W>_
 map <leader>= <C-W>=
 map <leader>\ <C-W><Bar>
 nmap <silent> <leader>h :silent :nohlsearch<CR>
-nmap <silent> <leader>f :silent :FufFile<CR>
-nmap <silent> <leader>l :silent :FufLine<CR>
-nmap <silent> <leader>r :silent :FufBuffer<CR>
-nmap <silent> <leader>n :silent :NERDTreeToggle<CR>
 nmap <silent> <leader>bb :silent :bp<CR>
 nmap <silent> <leader>bn :silent :bn<CR>
 nmap <silent> <leader>jj :%!python -m json.tool<CR>
-cabbrev p !pylint -f colorized %
-cabbrev f !flake8 %
-cabbrev n !nosetests --nologcapture --no-skip %
 
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1

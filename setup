@@ -10,14 +10,23 @@ chsh -s /bin/zsh
 # Get rid of default .zshrc file
 rm $HOME/.zshrc
 
+# Get vim plugins
+git clone https://github.com/govim/govim.git ./vim/pack/plugins/start/govim
+git clone https://github.com/Vimjas/vim-python-pep8-indent.git ./vim/pack/plugins/start/pep8-indent
+git clone https://github.com/jlanzarotta/bufexplorer.git ./vim/pack/plugins/start/bufexplorer
+git clone https://github.com/vim-syntastic/syntastic.git ./vim/pack/plugins/start/syntastic
+git clone https://tpope.io/vim/fugitive.git ./vim/pack/plugins/start/fugitive
+
+#Get vim colors
+curl https://raw.githubusercontent.com/freeo/vim-kalisi/master/colors/kalisi.vim -o ./vim/colors/kalisi.vim
+
+#Copy oh-my-zsh theme to themes dir
+cp $HOME/src/machine-config/pablo.zsh-theme $HOME/.oh-my-zsh/themes/
+
 # Create aliases in home directory
 ln -sf $HOME/src/machine-config/gitconfig $HOME/.gitconfig
 ln -sf $HOME/src/machine-config/tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/src/machine-config/vim $HOME/.vim
 ln -sf $HOME/src/machine-config/vimrc $HOME/.vimrc
 ln -sf $HOME/src/machine-config/zshrc $HOME/.zshrc
-
-# Install and setup vundle for vim Plugins
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
 
