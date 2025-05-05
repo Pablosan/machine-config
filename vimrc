@@ -13,10 +13,6 @@ nnoremap ` '
 " Set leader character to the spacebar
 let mapleader=" "
 
-" Add the cool little dots for white space while in Insert mode
-set list
-set listchars=tab:·\ ,trail:·
-
 " Get a list of files on Tab instead of autofilling the longest file
 set wildmode=list:longest
 
@@ -66,6 +62,7 @@ au BufNewFile,BufRead *.js, *.html, *.css
 " File Stuffs
 set autoread
 set autowrite
+set nocompatible
 set nobackup
 set nowritebackup
 set noswapfile
@@ -80,7 +77,6 @@ set showcmd                    " display incomplete commands
 set laststatus=2
 set title
 set visualbell
-set colorcolumn=80
 
 " Nav Stuffs
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -88,6 +84,20 @@ set bsdir=last                 " Last accessed directory is default working dire
 set history=1000               " keep 50 lines of command line history
 set incsearch                  " do incremental searching
 set scrolloff=0                " start scrolling when cursor is 0 lines from bottom
+
+" Recommended settings for govim
+filetype plugin on
+set mouse=a
+set ttymouse=sgr
+set updatetime=500
+set balloondelay=250
+set signcolumn=number
+autocmd! BufEnter,BufNewFile *.go,go.mod syntax on
+autocmd! BufLeave *.go,go.mod syntax off
+if has("patch-8.1.1904")
+  set completeopt+=popup
+  set completepopup=align:menu,border:off,highlight:Pmenu
+endif
 
 " Paste Toggle (stops <Command>-V paste from having indentation added)
 nnoremap <F2> :set invpaste paste?<CR>

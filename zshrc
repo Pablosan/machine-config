@@ -30,9 +30,6 @@ bindkey -M vicmd '^r' history-beginning-search-backward
 
 # Golang package path
 export GOPATH=~/src/gopath
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:~/go-appengine
-export PATH=$PATH:~/google-appengine
 
 # Setup command aliases
 alias l='ls -lha'
@@ -51,5 +48,7 @@ alias v='pyenv activate'
 alias v.cdsitepackages='cdsitepackages'
 alias v.cd='cdvirtualenv'
 alias v.lssitepackages='lssitepackages'
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/Users/pablosan/src/gopath/bin:/usr/local/bin:$PATH"
